@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINEDU en línea</title>
+
+<style>
+:root{
+  --primary:#1f5fae;
+  --primary-light:#E6EFF9;
+  --card:#ffffff;
+  --bg:#eef3f6;
+  --text:#333;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  padding:20px 60px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #ddd;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  color:var(--primary);
+}
+
+.logo span{
+  color:#00AEEF;
+}
+
+.search-box input{
+  padding:10px 15px;
+  border-radius:25px;
+  border:1px solid #ccc;
+  width:250px;
+}
+
+/* TITLES */
+.section{
+  padding:40px 60px;
+}
+
+.section h2{
+  margin-bottom:25px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+  gap:20px;
+}
+
+/* CARD */
+.card{
+  background:var(--card);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+}
+
+.icon-circle{
+  width:70px;
+  height:70px;
+  background:var(--primary-light);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:15px;
+  font-size:30px;
+  color:var(--primary);
+}
+
+.card h4{
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:14px;
+  margin-bottom:15px;
+  color:#666;
+}
+
+/* BUTTONS */
+.btn{
+  padding:8px 14px;
+  border:none;
+  border-radius:6px;
+  font-size:13px;
+  cursor:pointer;
+  margin-right:8px;
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:white;
+}
+
+.btn-outline{
+  background:#d9d9d9;
+}
+
+/* FORM SECTION */
+.form-section{
+  display:none;
+  padding:40px 60px;
+}
+
+.form-box{
+  background:white;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.08);
+  max-width:900px;
+}
+
+.form-row{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.form-group{
+  flex:1;
+  min-width:250px;
+}
+
+.form-group label{
+  display:block;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.form-group input{
+  width:100%;
+  padding:10px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+/* FOOTER */
+footer{
+  background:#333;
+  color:white;
+  padding:20px 60px;
+  margin-top:50px;
+  font-size:13px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">MINEDU <span>en línea</span></div>
+  <div class="search-box">
+    <input type="text" placeholder="¿Qué desea consultar?">
+  </div>
+</header>
+
+<section class="section" id="home">
+  <h2>¿Qué trámites deseas realizar hoy?</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon-circle">📄</div>
+      <h4>Mesa de Partes Digital</h4>
+      <p>Presenta documentos en línea</p>
+      <button class="btn btn-primary">Ir al servicio</button>
+      <button class="btn btn-outline">Ver guía</button>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle">🔎</div>
+      <h4>Seguimiento de trámite</h4>
+      <p>Consulta el estado de tu trámite</p>
+      <button class="btn btn-primary">Ir al servicio</button>
+      <button class="btn btn-outline">Ver guía</button>
+    </div>
+
+    <div class="card" onclick="mostrarFormulario()">
+      <div class="icon-circle">🎓</div>
+      <h4>Consulta de grados y títulos</h4>
+      <p>Consulta de educación superior</p>
+      <button class="btn btn-primary">Ir al servicio</button>
+    </div>
+
+    <div class="card">
+      <div class="icon-circle">📘</div>
+      <h4>Libro de Reclamaciones</h4>
+      <p>Registra tu reclamo</p>
+      <button class="btn btn-primary">Ir al servicio</button>
+    </div>
+
+  </div>
+</section>
+
+<section class="form-section" id="formulario">
+  <h2>Consulta de grados y títulos de educación superior</h2>
+
+  <div class="form-box">
+    <div class="form-row">
+      <div class="form-group">
+        <label>Número de documento</label>
+        <input type="text" placeholder="Ingrese DNI">
+      </div>
+
+      <div class="form-group">
+        <label>Apellidos y nombres</label>
+        <input type="text" placeholder="Ingrese apellidos y nombres">
+      </div>
+
+      <div class="form-group">
+        <label>Captcha</label>
+        <input type="text" placeholder="Ingrese captcha">
+      </div>
+    </div>
+
+    <button class="btn btn-primary">Buscar</button>
+    <button class="btn btn-outline" onclick="volverInicio()">Limpiar</button>
+  </div>
+</section>
+
+<footer>
+  Contacto<br>
+  Calle Del Comercio 193, San Borja - Lima, Perú<br>
+  © 2024 Ministerio de Educación
+</footer>
+
+<script>
+function mostrarFormulario(){
+  document.getElementById("home").style.display="none";
+  document.getElementById("formulario").style.display="block";
+}
+
+function volverInicio(){
+  document.getElementById("formulario").style.display="none";
+  document.getElementById("home").style.display="block";
+}
+</script>
+
+</body>
+</html>
